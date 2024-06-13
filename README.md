@@ -170,6 +170,7 @@ Ref:"MediaType"."MediaTypeId" < "Track"."MediaTypeId" [update: no action, delete
 
 # 3. SELECTING ALBUMS TO PURCHASE
 The record label specializes in artists from the USA, and they have given Chinook some money to advertise the new albums in the USA, so we're interested in finding out which genres sell the best in the USA.
+
 You'll need to write a query to find out which genres sell the most tracks in the USA, write up a summary of your findings, and make a recommendation for the three artists whose albums we should purchase for the store.
 # 4. Analyzing Employee Sales Performance
 Each customer for the Chinook store gets assigned a sales support agent within the company when they first make a purchase. You have been asked to analyze the purchases of customers belonging to each employee to see if any sales support agent is performing either better or worse than the others.
@@ -177,29 +178,48 @@ You might like to consider whether any extra columns from the employee table exp
 # 5. Analyzing Sales by Country
 Your next task is to analyze the sales data for customers from each different country. You have been given guidance to use the country value from the customers table and ignore the country from the billing address in the invoice table.
 In particular, you have been directed to calculate data, for each country, on the:
+
 • total number of customers
+
 • total value of sales
+
 • average value of sales per customer
+
 • average order value 
+
 Because there are a number of countries with only one customer, you should group these customers as "Other" in your analysis. You can use the following 'trick' to force the ordering of "Other" to last in your analysis.
 If there is a particular value that you would like to force to the top or bottom of results, you can put what would normally be your most outer query in a subquery with a case statement that adds a numeric column, and then in the outer query sort by that column. Here's an example - let's start by creating a view so we're working with a manageable number of rows.
 # 6. Albums vs Individual Tracks
 The Chinook store is setup in a way that allows customer to make purchases in one of the two ways:
+
 • purchase a whole album.
+
 • purchase a collection of one or more individual tracks.
+
 The store does not let customers purchase a whole album, and then add individual tracks to that same purchase (unless they do that by choosing each track manually). When customers purchase albums, they are charged the same price as if they had purchased each of those tracks separately. 
 Management is currently considering changing their purchasing strategy to save money. The strategy they are considering is to purchase only the most popular tracks from each album from record companies, instead of purchasing every track from an album.
 We have been asked to find out what percentage of purchases are individual tracks vs whole albums, so that management can use this data to understand the effect this decision might have on overall revenue.
+
 It is very common when you are performing an analysis to have 'edge cases' which prevent you from getting a 100% accurate answer to your question. In this instance, we have two edge cases to consider:
+
 • Albums that have only one or two tracks are likely to be purchased by 
+
 customers as part of a collection of individual tracks.
+
 • Customers may decide to manually select every track from an album, and 
 then add a few individual tracks from other albums to their purchase.
+
 In the first case, since our analysis is concerned with maximizing revenue, we can safely ignore albums consisting of only a few tracks. The company has previously done analysis to confirm that the second case does not happen often, so we can ignore this case also.
+
 In order to answer the question, we're going to have to identify whether each invoice has all the tracks from an album. We can do this by getting the list of tracks from an invoice and comparing it to the list of tracks from an album. We can find the album to compare the purchase to by looking up the album that one of the purchased tracks belongs to. It doesn't matter which track we pick, since if it's an album purchase, that album will be the same for all tracks.
 them:
+
 • Which artist is used in the most playlists?
+
 • How many tracks have been purchased vs not purchased? 
+
 • Is the range of tracks in the store reflective of their sales popularity? 
+
 • Do protected vs non-protected media types have an effect on popularity
+
 
