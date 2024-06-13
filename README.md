@@ -1,13 +1,22 @@
 # 1. Create table
 •	 employee table stores employee’s data such as employee id, last name, first name, etc. It also has a field named ReportsTo to specify who reports to whom.
+
 •	 customer table stores customers data.
+
 •	 invoice & invoiceline tables: these two tables store invoice data. The invoice table stores invoice header data and the invoiceline table stores the invoice line items data.
+
 •	 artist table stores artists data. It is a simple table that contains only the artist id and name.
+
 •	 album table stores data about a list of tracks. Each album belongs to one artist. However, one artist may have multiple albums.
+
 •	 mediatype table stores media types such as MPEG audio and AAC audio files.
+
 •	 genre table stores music types such as rock, jazz, metal, etc.
+
 •	 tracks table stores the data of songs. Each track belongs to one album.
+
 •	 playlist & playlisttrack tables: playlist table store data about playlists. Each playlist contains a list of tracks. Each track may belong to multiple playlists. The relationship between the playlist table and track table is many-to-many. The playlisttrack table is used to reflect this relationship.
+
 Table "Album" {
   "AlbumId" INT [pk, not null, increment]
   "Title" NVARCHAR(160) [not null]
